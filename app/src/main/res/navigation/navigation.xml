@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/movie_list_fragment">
+
+    <fragment
+        android:id="@+id/movie_list_fragment"
+        android:name="com.example.android.moviememosapp.movielist.MovieListFragment"
+        android:label="@string/movie_list_fragment"
+        tools:layout="@layout/fragment_movie_list">
+        <action
+            android:id="@+id/action_movieListFragment_to_movieMemoEditFragment"
+            app:destination="@id/movie_memo_edit_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
+        <action
+            android:id="@+id/action_movieListFragment_to_movieDetailFragment"
+            app:destination="@id/movie_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_memo_edit_fragment"
+        android:name="com.example.android.moviememosapp.moviememoedit.MovieMemoEditFragment"
+        android:label="@string/movie_memo_edit_fragment"
+        tools:layout="@layout/fragment_movie_memo_edit">
+        <argument
+            android:name="movieMemosKey"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_movieMemoEditFragment_to_movieListFragment"
+            app:destination="@id/movie_list_fragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/movie_list_fragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_detail_fragment"
+        android:name="com.example.android.moviememosapp.moviedetail.MovieDetailFragment"
+        android:label="@string/fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <argument
+            android:name="movieMemosKey"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_movieListFragment"
+            app:destination="@id/movie_list_fragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/movie_list_fragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right"/>
+    </fragment>
+
+</navigation>

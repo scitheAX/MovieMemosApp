@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Movie Memo App</string>
+    <string name="movie_list_fragment">MovieListFragment</string>
+    <string name="movie_memo_edit_fragment">MovieMemoEditFragment</string>]
+    <string name="fragment_movie_detail">MovieDetailFragment</string>
+
+    <string name="add">Add</string>
+    <string name="clear">Clear</string>
+
+    <string name="cleared_message">All your data is gone forever.</string>
+    <string name="error_message">Error</string>
+    <string name="close">Close</string>
+
+    <string name="movie_title">Title</string>
+    <string name="movie_review_text">Review</string>
+    <string name="movie_save_text">Save</string>
+    <string name="movie_delete_text">Delete</string>
+</resources>

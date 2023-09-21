@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movieListViewModel"
+            type="com.example.android.moviememosapp.movielist.MovieListViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".movielist.SleepTrackerFragment">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movie_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/clear_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+<!--        <Button-->
+<!--            android:id="@+id/add_button"-->
+<!--            style="@style/MovieButtons"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/margin"-->
+<!--            android:onClick="@{() -> movieListViewModel.onAdd()}"-->
+<!--            android:text="@string/add"-->
+<!--            android:textSize="32sp"-->
+<!--            app:layout_constraintHorizontal_chainStyle="spread"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"/>-->
+
+        <Button
+            android:id="@+id/clear_button"
+            style="@style/MovieButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:layout_marginBottom="@dimen/margin"
+            android:enabled="@{movieListViewModel.clearButtonVisible}"
+            android:onClick="@{() -> movieListViewModel.onClear()}"
+            android:text="@string/clear"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_fab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> movieListViewModel.onAdd()}"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="64dp"
+            android:src="@drawable/baseline_add_64"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

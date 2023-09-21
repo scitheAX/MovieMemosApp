@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="movieMemoEditViewModel"
+            type="com.example.android.moviememosapp.moviememoedit.MoviewMemoEditViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".moviememoedit.MovieMemoEditFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/movie_title_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:textColor="@color/primary_text"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="4dp"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/movie_title"
+                android:textSize="@dimen/title_text_size"
+                app:movieTitleString="@{movieMemoEditViewModel.currentMovie}"
+                android:textColor="@color/secondary_text"
+                android:inputType="text"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RatingBar
+            android:id="@+id/movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            android:progressTint="@color/star_color"
+            app:movieRating="@{movieMemoEditViewModel.currentMovie}"
+            app:layout_constraintTop_toBottomOf="@id/movie_title_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/movie_review_text"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
+            android:textColor="@color/primary_text"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="4dp"
+            app:errorEnabled="true"
+            app:counterEnabled="true"
+            app:counterMaxLength="200"
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_rating">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/movie_review_text"
+                android:textSize="@dimen/title_text_size"
+                android:textColor="@color/secondary_text"
+                android:inputType="textMultiLine"
+                app:movieReviewString="@{movieMemoEditViewModel.currentMovie}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/save_button"
+            style="@style/MovieButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/movie_save_text"
+            android:textSize="36sp"
+            app:layout_constraintTop_toBottomOf="@id/movie_review_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/delete_button"
+            style="@style/MovieButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/movie_delete_text"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_button"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
